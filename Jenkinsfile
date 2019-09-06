@@ -9,7 +9,7 @@ pipeline {
 
                   docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 
-                  def customImage = docker.build("maniengg/jersy-maven").withRun('-p 9090:9090','exec-java') {
+                  def customImage = docker.build("maniengg/jersy-maven").withRun('-p 9090:9090','exec:java') {
                    
                     }  
                   }
