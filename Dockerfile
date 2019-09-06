@@ -8,6 +8,6 @@ RUN mvn install
 COPY src /opt/app/src
 RUN mvn package
 
-EXPOSE 8080
+EXPOSE 9090
 CMD ["mvn", "exec:java"]
 
