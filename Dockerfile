@@ -1,23 +1,13 @@
 FROM maven:3.3.9-jdk-8
-# as build
 
-WORKDIR /app
+RUN mkdir -p /opt/app
+WORKDIR /opt/app
 
-COPY pom.xml .
-COPY src src
-RUN mvn install -DskipTests
+COPY pom.xml /opt/app/
+RUN mvn install
+COPY src /opt/app/src
+RUN mvn package
 
-# RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
-
-#FROM openjdk:8-jdk-alpine
-#WORKDIR /app
-VOLUME /tmp
-#ARG TARGET=/app/target/
-#COPY --from=build ${TARGET}/lib /app/lib
-#COPY --from=build ${TARGET}/classes .
-
-
-EXPOSE 9090
-ENTRYPOINT ["java","-cp","/app:/app/lib/*","jersy-maven"]
-
+EXPOSE 8080
+CMD ["mvn", "exec:java"]
 
