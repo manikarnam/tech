@@ -9,7 +9,7 @@ pipeline {
 
                   docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 
-                  def customImage = docker.build("maniengg/jenkins4evaljnlpslave").withRun('-p 9090:9090','com.dekses.jersey.docker.demo.Main') {
+                  def customImage = docker.build("maniengg/ubuntu").withRun('-p 9090:9090','com.dekses.jersey.docker.demo.Main') {
                    
                     }  
                   }
