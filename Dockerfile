@@ -17,6 +17,6 @@ COPY --from=build ${TARGET}/classes .
 
 
 EXPOSE 9090
-ENTRYPOINT ["java","-cp","/app:/app/lib/*","com.dekses.jersey.docker.demo.Main"]
+ENTRYPOINT ["java","-cp","/app:/app/lib/*","jersy-maven"]
 
 
