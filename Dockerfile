@@ -16,7 +16,7 @@ COPY --from=build ${TARGET}/lib /app/lib
 COPY --from=build ${TARGET}/classes .
 
 
-EXPOSE 8080
+EXPOSE 9090
 ENTRYPOINT ["java","-cp","/app:/app/lib/*","com.dekses.jersey.docker.demo.Main"]
 
 
