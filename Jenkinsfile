@@ -2,7 +2,7 @@ pipeline {
     agent { label 'slave_node' }
 
       stages {
-         stage ('Build && push'){
+         stage ('Build'){
              steps {
                  script{
                   checkout scm
@@ -11,13 +11,10 @@ pipeline {
 
                   def customImage = docker.build("maniengg/jenkins4evaljnlpslave").withRun('-p 9090:9090','com.dekses.jersey.docker.demo.Main') {
                    
-                  // customImage.push()
-                  //  customImage.pull()
-                                  
-                  }   
-                }
-              }
-            }
+                    }  
+                  }
+                 }
+             }
          }
-     }
+      }
 }
